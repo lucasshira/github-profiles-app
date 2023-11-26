@@ -45,15 +45,9 @@ input:focus {
     max-width: 800px;
 }
 
-.img-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .avatar {
     border: 1px solid transparent;
-    border-radius: 50%;;
+    border-radius: 50%;
     width: 150px;
     height: 150px;
 }
@@ -71,5 +65,33 @@ input:focus {
     justify-content: space-between;
     list-style-type: none;
     padding: 0;
-    max-width: 300px;
+    max-width: 400px;
+}
+
+.user-info ul li {
+    display: flex;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.user-info ul li strong {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.repo {
+    background-color:  #434343;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
 }

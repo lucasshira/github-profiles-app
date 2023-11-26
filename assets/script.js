@@ -6,17 +6,26 @@ const search = document.getElementById('search');
 
 getUser('lucasshira');
 
-async function getUser(user) {
-    const resp = await fetch(APIURL + user);
-    const respData = await resp.json(user);
+async function getUser(username) {
+    const resp = await fetch(APIURL + username);
+    const respData = await resp.json();
 
     createUserCard(respData);
+
+    getRepos(username);
 }
+
+async function getRepos(username) {
+    const resp = await fetch(APIURL + username + '/repos');
+    const respData = await resp.json();
+
+    addReposToCard(respData);
+};
 
 function createUserCard(user) {
     const cardHTML = `
         <div class="card">
-            <div class="img-container">
+            <div>
                 <img class="avatar" src="${user.avatar_url}" alt="${user.name}"/>
             </div>
             <div class="user-info">
@@ -24,15 +33,33 @@ function createUserCard(user) {
                 <p>${user.bio}</p>
 
                 <ul class="info">
-                    <li>${user.followers}</li>
-                    <li>${user.following}</li>
-                    <li>${user.public_repos}</li>
+                    <li>${user.followers}<strong>Followers</strong></li>
+                    <li>${user.following}<strong>Following</strong></li>
+                    <li>${user.public_repos}<strong>Public Repos</strong></li>
                 </ul>
+
+                <h4>Repos:</h4>
+                <div id="repos"></div>
             </div>
         </div>
     `;
 
     main.innerHTML = cardHTML;
+};
+
+function addReposToCard(repos) {
+    const reposEl = document.getElementById('repos');
+
+    repos.sort((a, b) => b.stargazers_count - a.stargazers_count).forEach(repo => {
+        const repoEl = document.createElement('a');
+        repoEl.classList.add('repo');
+
+        repoEl.href = repo.html_url;
+        repoEl.target = "_blank";
+        repoEl.innerText = repo.name;
+
+        reposEl.appendChild(repoEl);
+    });
 };
 
 form.addEventListener('submit', (e) => {
@@ -44,4 +71,4 @@ form.addEventListener('submit', (e) => {
         getUser(user);
         search.value = '';
     }
-})
+});
