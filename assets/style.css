@@ -41,15 +41,15 @@ input:focus {
     border-radius: 20px;
     box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(0, 0, 0, 0.1);
     display: flex;
-    padding: 3rem;
+    padding: 2rem;
     max-width: 800px;
 }
 
 .avatar {
     border: 1px solid transparent;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
 }
 
 .user-info {
@@ -72,6 +72,8 @@ input:focus {
     display: flex;
     text-align: center;
     padding-top: 30px;
+    padding-right: 50px;
+    white-space: nowrap;
 }
 
 .user-info ul li strong {
@@ -94,4 +96,39 @@ h4 {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .card {
+        max-width: 100%;
+        font-size: 12px;
+    }
+
+    .user-info ul {
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .user-info ul li {
+        font-size: 0.8rem;
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .user-info {
+        font-size: 1rem;
+    }
+
+    .avatar {
+        width: 100%;
+        height: 50px;
+        width: 50px;
+    }
 }
