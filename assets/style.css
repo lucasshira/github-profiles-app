@@ -71,7 +71,7 @@ input:focus {
 .user-info ul li {
     display: flex;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-right: 50px;
     white-space: nowrap;
 }
@@ -98,7 +98,7 @@ h4 {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     body {
         max-width: 100%;
         padding: 20px;
@@ -111,7 +111,7 @@ h4 {
 
     .user-info ul {
         flex-wrap: wrap;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     .user-info ul li {
@@ -119,7 +119,7 @@ h4 {
         max-width: 90%;
         display: flex;
         align-items: center;
-        margin-bottom: 5px;
+        margin-bottom: -10px;
     }
 
     .user-info {
