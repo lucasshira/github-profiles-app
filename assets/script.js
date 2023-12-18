@@ -4,22 +4,28 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 
-getUser('lucasshira');
-
 async function getUser(username) {
-    const resp = await fetch(APIURL + username);
-    const respData = await resp.json();
-
-    createUserCard(respData);
-
-    getRepos(username);
+    try {
+        const resp = await fetch(APIURL + username);
+        const respData = await resp.json();
+    
+        createUserCard(respData);
+    
+        await getRepos(username);
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 async function getRepos(username) {
-    const resp = await fetch(APIURL + username + '/repos');
-    const respData = await resp.json();
-
-    addReposToCard(respData);
+    try {
+        const resp = await fetch(APIURL + username + '/repos');
+        const respData = await resp.json();
+    
+        addReposToCard(respData);
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 function createUserCard(user) {

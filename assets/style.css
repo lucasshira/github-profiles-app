@@ -78,7 +78,7 @@ input:focus {
 
 .user-info ul li strong {
     font-size: 0.9rem;
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
 }
 
 h4 {
@@ -110,7 +110,7 @@ h4 {
 
     .card {
         max-width: 100%;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .user-info ul {
